@@ -1,0 +1,179 @@
+/* Базовые переменные темы */
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #60646c;
+  --card: #f5f7fb;
+  --border: #e4e6eb;
+  --primary: #2563eb;
+  --primary-contrast: #ffffff;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0b0e14;
+  --text: #e6edf3;
+  --muted: #9aa4ae;
+  --card: #11151d;
+  --border: #222735;
+  --primary: #60a5fa;
+  --primary-contrast: #0b0e14;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b0e14;
+    --text: #e6edf3;
+    --muted: #9aa4ae;
+    --card: #11151d;
+    --border: #222735;
+    --primary: #60a5fa;
+    --primary-contrast: #0b0e14;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.brand { font-weight: 700; }
+.header-actions { display: flex; gap: 8px; }
+
+.site-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  padding: 8px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.muted { color: var(--muted); }
+
+.app { max-width: 1200px; margin: 0 auto; padding: 16px; }
+.two-pane { display: grid; grid-template-columns: 300px 1fr; gap: 16px; align-items: start; }
+.sidebar { position: sticky; top: 60px; max-height: calc(100vh - 100px); overflow: auto; border-right: 1px solid var(--border); padding-right: 16px; }
+.content { min-height: calc(100vh - 140px); }
+
+.sidebar-title { font-weight: 700; margin: 6px 0 8px; }
+.sidebar .list li { background: transparent; }
+.sidebar .list .item { padding: 10px 8px; }
+.sidebar-section + .sidebar-section { margin-top: 16px; }
+
+.view { display: block; }
+.view[hidden] { display: none; }
+
+.view-title { margin: 12px 0 16px; font-size: 22px; }
+
+.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.list li { border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+.list a, .list button.item {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  gap: 12px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.row-gap { display: flex; gap: 8px; margin-bottom: 12px; }
+
+button {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  background: var(--card);
+  color: inherit;
+  cursor: pointer;
+}
+
+button.primary {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: transparent;
+}
+
+button.ghost { background: transparent; }
+
+.reader-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0 12px;
+}
+
+.reader {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  padding: 18px 16px;
+  white-space: pre-wrap; /* сохраняем переносы строк */
+  overflow-y: auto;
+  max-height: calc(100vh - 220px);
+}
+
+/* Крупные абзацы читаются комфортнее при средней ширине */
+.reader { font-size: 18px; line-height: 1.7; }
+
+/* Ссылки и метки сезонов */
+.season-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+/* Markdown рендер */
+.reader h1, .reader h2, .reader h3 { margin: 1.2em 0 0.6em; }
+.reader p { margin: 0.6em 0; }
+.reader ul { padding-left: 1.4em; }
+.reader code { background: rgba(127,127,127,.15); padding: .1em .3em; border-radius: 6px; }
+.reader pre { background: rgba(127,127,127,.15); padding: 12px; border-radius: 8px; overflow: auto; }
+.reader a { color: var(--primary); }
+
+.progressbar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressbar > span {
+  display: block;
+  height: 100%;
+  background: var(--primary);
+  width: 0%;
+}
+
+

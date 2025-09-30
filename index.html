@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Читалка фанфиков</title>
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand" id="app-title">Читалка фанфиков</div>
+      <div class="header-actions">
+        <button id="back-button" class="ghost" aria-label="Назад" hidden>← Назад</button>
+        <button id="theme-toggle" class="ghost" aria-label="Переключить тему">🌓</button>
+      </div>
+    </header>
+
+    <main id="app" class="app two-pane">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-title">Фанфики</div>
+          <ul class="list" id="fanfics-list"></ul>
+        </div>
+        <div class="sidebar-section" id="seasons-section" hidden>
+          <div class="sidebar-title" id="fanfic-title">Сезоны</div>
+          <div class="row-gap">
+            <button id="continue-fanfic" class="primary" hidden>Продолжить</button>
+          </div>
+          <ul class="list" id="seasons-list"></ul>
+        </div>
+      </aside>
+
+      <section class="content">
+        <!-- Читалка -->
+        <section id="reader-view" class="view">
+          <div class="reader-header">
+            <div class="reader-meta">
+              <div id="reader-fanfic-name" class="muted"></div>
+              <div id="reader-season-name" class="muted"></div>
+            </div>
+            <div class="reader-actions">
+              <button id="continue-reader" class="ghost" hidden>К последнему месту</button>
+            </div>
+          </div>
+          <article id="reader-content" class="reader" aria-live="polite"></article>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span id="footer-progress" class="muted"></span>
+    </footer>
+
+    <!-- Данные фанфиков (можно не хранить .txt) -->
+    <script src="data/salik.js" defer></script>
+    <script src="data/frosao.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+  </html>
+
+
